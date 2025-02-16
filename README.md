@@ -12,8 +12,7 @@ The generated file is exactly **10MB** in size, and each object is separated by 
 ## Installation
 1. Clone the repository:
    ```sh
-   git clone <your-repo-url>
-   cd random-data-generator
+   git clone https://github.com/sulemanzaie/SnappyMob-Chal-a.git
    ```
 
 2. Install dependencies:
@@ -27,15 +26,27 @@ The generated file is exactly **10MB** in size, and each object is separated by 
    npm run build
    ```
 
-2. Run the script:
+##  Challenge A:
    ```sh
-   node dist/main.js
+   npm run generate
    ```
 
-This will generate a file named `random_data.txt` in the root directory.
+## Challenge B:
+   ```sh
+   npm run read
+   ```
 
-## Output File Location
-The generated file will be found at:
-```
-challenge-a/dist/random_data.txt
-```
+## Challenge C:
+1. Build docker image:
+   ```sh
+   docker build -t random-data-processor .
+   ```
+2. Run docker image:
+   ```sh
+   docker run -v "$(pwd)/app" random-data-processor
+   ```
+
+3. Save logs from Container
+   ```sh
+   docker logs my-container > output/processed_output.txt
+   ```

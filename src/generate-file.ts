@@ -1,12 +1,12 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { AppService } from './app.service';
+import { GenerateFileService } from './generate-file.service';
 
-async function bootstrap() {
+async function generateFile() {
   const app = await NestFactory.createApplicationContext(AppModule);
-  const appService = app.get(AppService);
+  const appService = app.get(GenerateFileService);
   appService.generateFile();
   console.log('Random data file generated successfully!');
   await app.close();
 }
-bootstrap();
+generateFile().then();

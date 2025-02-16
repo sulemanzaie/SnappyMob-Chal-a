@@ -4,24 +4,24 @@ import * as path from 'path';
 import { Buffer } from 'buffer';
 
 @Injectable()
-export class AppService {
+export class GenerateFileService {
   private readonly filePath = path.join(__dirname, 'random_data.txt');
   private readonly fileSize = 10 * 1024 * 1024;
 
-  generateRandomAlphabeticalString(length: number): string {
+  private generateRandomAlphabeticalString(length: number): string {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     return Array.from({ length }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
   }
 
-  generateRandomInteger(): number {
+  private generateRandomInteger(): number {
     return Math.floor(Math.random() * 1000000);
   }
 
-  generateRandomRealNumber(): number {
+  private generateRandomRealNumber(): number {
     return parseFloat((Math.random() * 1000).toFixed(5));
   }
 
-  generateRandomAlphanumeric(): string {
+  private generateRandomAlphanumeric(): string {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     const length = Math.floor(Math.random() * 10) + 5;
     const randomString = Array.from({ length }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
@@ -46,3 +46,5 @@ export class AppService {
     stream.end();
   }
 }
+
+
